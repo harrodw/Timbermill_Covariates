@@ -1,0 +1,101 @@
+Plot,Hut.ID,Camera.Name,Camera.Model,D1.Date,D1.Days.Active,D1.Settings,D1.Status,D2.Date,D2.Days.Active,D2.Settings,D2.Status,D3.Date,D3.Days.Active,D3.Settings,D3.Status,D4.Date,D4.Days.Active,D4.Settings,D4.Status,Date.Pulled,Total.Days.Active
+IF01,A,NRC196,Reconyx Hyperfire 1,3/28/2026,3,1-min TL,Battery Failure,5/6/2026,26,5-min TL,Functioning,6/1/2026,57,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/28/2026,112
+IF02,A,NRC246,Reconyx Hyperfire 1,4/8/2026,8,1-min TL,Battery Failure,5/6/2026,41,5-min TL,Functioning,6/16/2026,24,5-min TL,Battery Failure,NA,NA,NA,Not Collected ,7/27/2026,106
+IF03,A,MM236,Browning HP5,3/27/2026,9,1-min TL,Battery Failure,4/22/2026,0,1-min TL,Data Missing,5/13/2026,44,5-min TL,Functioning,6/26/2026,35,5-min TL,Functioning,7/31/2026,89
+IF04,A,NRC41,Reconyx Hyperfire 1,4/8/2026,9,1-min TL,Battery Failure,5/6/2026,26,5-min TL,Functioning,6/1/2026,56,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,121
+IF05,A,MM10,Browning HP5,3/28/2026,39,No TL,Functioning,5/6/2026,50,5-min TL,Functioning,6/25/2026,22,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,118
+IF06,A,NRC240,Reconyx Hyperfire 1,3/27/2026,19,1-min TL,Battery Failure,5/13/2026,43,5-min TL,Functioning,6/26/2026,35,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/31/2026,104
+IF07,A,NRC277,Reconyx Hyperfire 1,3/27/2026,19,1-min TL,Battery Failure,5/13/2026,43,5-min TL,Functioning,6/26/2026,34,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/31/2026,96
+IF08,A,NRC267,Reconyx Hyperfire 1,3/27/2026,21,1-min TL,Battery Failure,5/13/2026,0,5-min TL,Data Missing,6/1/2026,37,5-min TL,Functioning,7/8/2026,14,5-min TL,Battery Failure,7/28/2026,79
+IF09,A,WC03,Reconyx Hyperfire 1,4/8/2026,28,1-min TL,Functioning,5/6/2026,13,5-min TL,Battery Failure,6/16/2026,41,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,94
+RE01,A,MM320,Browning HP5,4/12/2026,23,1-min TL,Battery Failure,5/6/2026,41,5-min TL,Functioning,6/16/2026,44,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/30/2026,117
+RE02,A,NRC75,Reconyx Hyperfire 1,4/8/2026,28,1-min TL,Functioning,5/6/2026,20,5-min TL,Battery Failure,6/1/2026,56,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,145
+RE03,A,SD15,Reconyx Hyperfire 1,3/28/2026,12,1-min TL,Battery Failure,4/22/2026,0,1-min TL,Data Missing,5/6/2026,26,5-min TL,Functioning,6/1/2026,57,5-min TL,Functioning,7/28/2026,107
+RE04,A,NRC77,Reconyx Hyperfire 1,4/2/2026,11,1-min TL,Battery Failure,5/23/2026,25,5-min TL,Functioning,6/17/2026,21,5-min TL,Battery Failure,NA,NA,NA,Not Collected ,7/27/2026,88
+RE05,A,MP98,Reconyx Hyperfire 1,3/28/2026,6,1-min TL,Battery Failure,5/6/2026,42,5-min TL,Battery Failure,6/25/2026,19,5-min TL,Functioning,7/14/2026,0,5-min TL,Data Missing,7/30/2026,110
+RE06,A,MM340,Browning HP5,4/12/2026,24,1-min TL,Functioning,5/6/2026,50,5-min TL,Functioning,6/25/2026,35,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/30/2026,110
+RE07,A,MM310,Browning HP5,4/12/2026,0,1-min TL,Data Missing,5/6/2026,41,5-min TL,Functioning,6/16/2026,18,5-min TL,Battery Failure,NA,NA,NA,Not Collected ,7/30/2026,98
+RE08,A,MM318,Browning HP5,4/12/2026,0,1-min TL,Data Missing,5/6/2026,50,5-min TL,Functioning,6/25/2026,28,5-min TL,Battery Failure,NA,NA,NA,Not Collected ,7/30/2026,114
+RE09,A,NRC188,Browning HP5,4/8/2026,27,1-min TL,Battery Failure,5/6/2026,41,5-min TL,Functioning,6/16/2026,7,5-min TL,Bear Damage,7/14/2026,14,5-min TL,Functioning,7/31/2026,117
+TE01,A,NRC301 / NCCC485,Reconyx Hyperfire 1,4/10/2026,13,1-min TL,Battery Failure,5/23/2026,25,5-min TL,Functioning,6/17/2026,13,5-min TL,Battery Failure,NA,NA,NA,Not Collected ,7/28/2026,86
+TE02,A,NRC59,Reconyx Hyperfire 1,4/10/2026,22,1-min TL,Battery Failure,5/19/2026,30,1-min TL,Functioning,6/18/2026,40,5-min TL,Functioning,6/18/2026,40,5-min TL,Functioning,7/28/2026,168
+TE03,A,MM356,Browning HP5,4/10/2026,39,No TL,Functioning,5/19/2026,29,5-min TL,Functioning,6/17/2026,41,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/28/2026,136
+TE04,A,WC12,Reconyx Hyperfire 1,4/1/2026,26,No TL,Functioning,5/7/2026,26,5-min TL,Functioning,6/2/2026,0,5-min TL,Data Missing,NA,NA,NA,Not Collected ,7/30/2026,93
+TE05,A,MM275,Browning HP5,4/2/2026,33,1-min TL,Battery Failure,5/7/2026,26,5-min TL,Functioning,6/2/2026,36,5-min TL,Functioning,7/8/2026,20,5-min TL,Functioning,7/28/2026,148
+TE06,A,MM248 / MM5,Browning HP5,4/2/2026,1,1-min TL,Battery Failure,5/7/2026,26,5-min TL,Functioning,6/2/2026,36,5-min TL,Functioning,7/8/2026,22,5-min TL,Functioning,7/30/2026,89
+TE07,A,WC06 / MM244,Reconyx Hyperfire 1 / ,4/1/2026,30,1-min TL,Battery Failure,5/7/2026,0,5-min TL,Battery Failure,6/17/2026,41,5-min TL,Battery Failure,7/22/2026,8,5-min TL,Functioning,6/30/2026,92
+TE08,A,NCSU2,Reconyx Hyperfire 1,4/2/2026,7,1-min TL,Battery Failure,5/23/2026,0,5-min TL,Data Missing,6/18/2026,18,5-min TL,Battery Failure,NA,NA,NA,Not Collected ,7/30/2026,52
+TE09,A,NRC24,Reconyx Hyperfire 1,4/8/2026,7,1-min TL,Battery Failure,5/19/2026,29,5-min TL,Functioning,6/17/2026,9,5-min TL,Bear Damage,7/9/2026,21,5-min TL,Functioning,7/30/2026,86
+TE10,A,NCCC204,Reconyx Hyperfire 1,4/10/2026,0,1-min TL,Data Missing,5/13/2026,36,5-min TL,Functioning,6/18/2026,39,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/30/2026,115
+TE11,A,NCCC271,Reconyx Hyperfire 1,4/1/2026,7,1-min TL,Battery Failure,5/7/2026,26,5-min TL,Functioning,6/2/2026,55,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,108
+TE12,A,NRC53,Reconyx Hyperfire 1,4/2/2026,12,1-min TL,Battery Failure,5/7/2026,26,5-min TL,Functioning,6/2/2026,55,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,131
+TE13,A,SD18,Reconyx Hyperfire 1,4/1/2026,9,1-min TL,Battery Failure,5/19/2026,29,5-min TL,Functioning,6/17/2026,41,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/28/2026,79
+TE14,A,NRC31,Reconyx Hyperfire 1,4/2/2026,41,No TL,Functioning,5/23/2026,47,5-min TL,Functioning,7/8/2026,0,5-min TL,Data Missing,NA,NA,NA,Not Collected ,7/30/2026,113
+TE15,A,NRC17,Reconyx Hyperfire 1,4/2/2026,12,1-min TL,Battery Failure,4/22/2026,0,1-min TL,Data Missing,5/19/2026,30,5-min TL,Functioning,6/18/2026,39,5-min TL,Functioning,7/27/2027,109
+TE16,A,NCCC27,Reconyx Hyperfire 1,4/2/2026,31,1-min TL,Battery Failure,5/7/2026,0,5-min TL,Data Missing,6/2/2026,55,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,90
+TO01,A,MM324,Browning HP5,4/10/2026,43,No TL,Functioning,5/23/2026,25,5-min TL,Functioning,6/17/2026,40,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/28/2026,112
+TO02,A,NRC262,Reconyx Hyperfire 1,4/10/2026,1,1-min TL,Battery Failure,5/19/2026,1,5-min TL,Battery Failure,6/18/2026,1,5-min TL,Battery Failure,NA,NA,NA,Not Collected ,7/28/2026,50
+TO03,A,MM247,Browning HP5,4/10/2026,39,No TL,Functioning,5/19/2026,29,5-min TL,Functioning,6/17/2026,41,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/28/2026,156
+TO04,A,NCCC360,Reconyx Hyperfire 1,4/1/2026,36,No TL,Functioning,5/7/2026,26,5-min TL,Functioning,6/2/2026,58,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/30/2026,148
+TO05,A,MM137,Browning HP5,4/2/2026,28,1-min TL,Battery Failure,5/7/2026,26,5-min TL,Functioning,6/2/2026,16,5-min TL,Functioning,6/18/2026,40,5-min TL,Functioning,7/28/2026,134
+TO06,A,MM279,Browning HP5,4/2/2026,35,1-min TL,Functioning,5/7/2026,8,5-min TL,Battery Failure,6/1/2026,26,5-min TL,Functioning,7/8/2026,22,5-min TL,Functioning,7/30/2026,119
+TO07,A,NRC253,Reconyx Hyperfire 1,4/1/2026,36,No TL,Functioning,5/7/2026,26,5-min TL,Functioning,6/2/2026,58,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/30/2026,145
+TO08,A,NRC66,Reconyx Hyperfire 1,4/2/2026,27,1-min TL,Battery Failure,5/19/2026,30,5-min TL,Functioning,6/18/2026,2,5-min TL,Battery Failure,7/14/2026,16,5-min TL,Functioning,7/30/2026,126
+TO09,A,NRC50,Reconyx Hyperfire 1,4/8/2026,41,No TL,Functioning,5/19/2026,29,5-min TL,Functioning,6/17/2026,16,5-min TL,Battery Failure,NA,NA,NA,Not Collected ,7/30/2026,125
+TO10,A,NRC276,Reconyx Hyperfire 1,4/10/2026,33,1-min TL,Functioning,5/13/2026,36,5-min TL,Functioning,6/18/2026,39,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,132
+TO11,A,NRC99,Reconyx Hyperfire 1,4/1/2026,4,1-min TL,Battery Failure,5/7/2026,26,5-min TL,Functioning,6/2/2026,55,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,109
+TO12,A,NRC54,Reconyx Hyperfire 1,4/2/2026,13,1-min TL,Battery Failure,5/7/2026,26,5-min TL,Functioning,6/2/2026,55,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,118
+TO13,A,NRC226,Reconyx Hyperfire 1,4/1/2026,27,1-min TL,Battery Failure,5/19/2026,29,5-min TL,Functioning,6/17/2026,41,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/28/2026,125
+TO14,A,NRC28,Reconyx Hyperfire 1,4/2/2026,20,1-min TL,Functioning,4/22/2026,7,1-min TL,Battery Failure,5/23/2026,46,5-min TL,Functioning,7/8/2026,22,5-min TL,Functioning,7/30/2026,138
+TO15,A,NRC100,Reconyx Hyperfire 1,4/2/2026,40,1-min TL,Battery Failure,5/19/2026,30,5-min TL,Functioning,6/18/2026,39,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2027,121
+TO16,A,NRC224,Reconyx Hyperfire 1,4/1/2026,20,1-min TL,Battery Failure,5/7/2026,26,5-min TL,Functioning,6/2/2026,55,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,140
+IF01,B,MM105,Browning HP5,3/28/2026,38,No TL,Functioning,5/6/2026,25,5-min TL,Functioning,6/1/2026,57,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/28/2026,156
+IF02,B,MM241 (4/8-5/6) MM210 (5/6-),Browning RecFrce / Browning HP5,4/8/2026,0,No TL,Data Missing,5/6/2026,41,5-min TL,Functioning,6/16/2026,42,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,118
+IF03,B,MM307,Browning HP5,3/27/2026,25,No TL,Functioning,4/22/2026,22,No TL,Functioning,5/13/2026,44,5-min TL,Functioning,6/26/2026,34,5-min TL,Battery Failure,7/31/2026,160
+IF04,B,TNC010 (4/8-5/6) MM341 (5/6-),Browning RecFrce / Browning HP5,4/8/2026,28,No TL,Functioning,5/6/2026,25,5-min TL,Functioning,6/1/2026,56,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,110
+IF05,B,NRC248,Reconyx Hyperfire 1,3/28/2026,4,1-min TL,Battery Failure,5/6/2026,49,5-min TL,Functioning,6/25/2026,32,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,136
+IF06,B,MM260,Browning HP5,3/27/2026,4,1-min TL,Battery Failure,5/13/2026,44,5-min TL,Functioning,6/26/2026,31,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/31/2026,120
+IF07,B,MM330,Browning HP5,3/27/2026,47,No TL,Functioning,5/13/2026,44,5-min TL,Functioning,6/26/2026,36,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/31/2026,127
+IF08,B,MM334,Browning HP5,3/27/2026,47,No TL,Functioning,5/13/2026,0,5-min TL,Data Missing,6/1/2026,36,5-min TL,Functioning,7/8/2026,22,5-min TL,Functioning,7/28/2026,141
+IF09,B,MM178,Browning HP5,4/8/2026,28,No TL,Functioning,5/6/2026,41,5-min TL,Functioning,6/16/2026,41,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,145
+RE01,B,MM9,Browning HP5,4/12/2026,24,No TL,Functioning,5/6/2026,41,5-min TL,Functioning,6/16/2026,10,No TL,Battery Failure,NA,NA,NA,Not Collected ,7/30/2026,123
+RE02,B,TNC002 (4/8-5/6) MM110 (5/6-),Browning RecFrce / Browning HP5,4/8/2026,28,No TL,Functioning,5/6/2026,25,5-min TL,Functioning,6/1/2026,56,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,160
+RE03,B,NC142B,Reconyx Hyperfire 1,3/28/2026,25,No TL,Functioning,4/22/2026,15,No TL,Functioning,5/6/2026,25,5-min TL,Battery Failure,6/1/2026,57,5-min TL,Functioning,7/28/2026,142
+RE04,B,MM152,Browning HP5,4/2/2026,51,No TL,Functioning,5/23/2026,25,5-min TL,Functioning,6/17/2026,16,5-min TL,Wasp Damage,NA,NA,NA,Not Collected ,7/27/2026,127
+RE05,B,MM289,Browning HP5,3/28/2026,39,No TL,Functioning,5/6/2026,50,5-min TL,Functioning,6/25/2026,8,5-min TL,Bear Damage,7/14/2026,16,5-min TL,Functioning,7/30/2026,133
+RE06,B,MM253,Browning HP5,4/12/2026,24,No TL,Functioning,5/6/2026,18,5-min TL,Battery Failure,6/25/2026,35,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/30/2026,116
+RE07,B,MM268,Browning HP5,4/12/2026,24,No TL,Functioning,5/6/2026,41,5-min TL,Functioning,6/16/2026,44,No TL,Functioning,NA,NA,NA,Not Collected ,7/30/2026,140
+RE08,B,MM148,Browning HP5,4/12/2026,24,No TL,Functioning,5/6/2026,50,5-min TL,Functioning,6/25/2026,24,5-min TL,Battery Failure,NA,NA,NA,Not Collected ,7/30/2026,134
+RE09,B,NC149,Reconyx Hyperfire 1,4/8/2026,28,No TL,Functioning,5/6/2026,41,5-min TL,Functioning,6/16/2026,28,5-min TL,Functioning,7/14/2026,17,5-min TL,Functioning,7/31/2026,149
+TE01,B,MM207,Browning HP5,4/10/2026,43,No TL,Functioning,5/23/2026,25,5-min TL,Functioning,6/17/2026,41,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/28/2026,144
+TE02,B,MM249,Browning HP5,4/10/2026,12,No TL,Functioning,4/22/2026,18,5-min TL,Battery Failure,5/19/2026,0,5-min TL,Bear Damage,6/18/2026,40,5-min TL,Functioning,7/28/2026,106
+TE03,B,NRC284,Browning HP5,4/10/2026,39,No TL,Functioning,5/19/2026,29,5-min TL,Functioning,6/17/2026,11,5-min TL,Battery Failure,NA,NA,NA,Not Collected ,7/28/2026,126
+TE04,B,TNC023 / MM227,Browning RecFrce / Browning HP5,4/1/2026,36,No TL,Functioning,5/7/2026,26,5-min TL,Functioning,6/2/2026,1,5-min TL,Battery Failure,7/8/2026,8,5-min TL,Battery Failure,7/30/2026,112
+TE05,B,MM339,Browning HP5,4/2/2026,35,No TL,Functioning,5/7/2026,23,5-min TL,Battery Failure,6/2/2026,36,5-min TL,Functioning,7/8/2026,20,5-min TL,Functioning,7/28/2026,147
+TE06,B,TNC003 (4/2/26-5/7/26) MM237 (5/7/26-),Browning RecFrce / Browning HP5,4/2/2026,35,No TL,Functioning,5/7/2026,26,5-min TL,Functioning,6/2/2026,36,5-min TL,Functioning,7/8/2026,1,5-min TL,Battery Failure,7/30/2026,134
+TE07,B,TNC030 (4/1/26-5/7/26) MM121 5/7,Browning RecFrce / Browning HP5,4/1/2026,1,No TL,Unknown Failure,5/7/2026,41,5-min TL,Functioning,6/17/2026,42,5-min TL,Functioning,NA,NA,5-min TL,Not Collected ,6/30/2026,119
+TE08,B,TNC006 (4/2-5/23) MM326 (5/23-),Browning RecFrce / Browning HP5,4/2/2026,51,No TL,Functioning,5/23/2026,0,5-min TL,Data Missing,6/18/2026,42,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/30/2026,141
+TE09,B,MM376,Browning HP5,4/8/2026,41,No TL,Functioning,5/19/2026,29,5-min TL,Functioning,6/17/2026,9,5-min TL,Bear Damage,7/9/2026,21,5-min TL,Functioning,7/30/2026,120
+TE10,B,MM329,Browning HP5,4/10/2026,0,No TL,Data Missing,5/13/2026,36,5-min TL,Functioning,6/18/2026,39,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/30/2026,122
+TE11,B,TNC13 (4/1/26-5/7/26) M299 (5/7/26-),Browning RecFrce / Browning HP5,4/1/2026,36,No TL,Functioning,5/7/2026,26,5-min TL,Functioning,6/2/2026,55,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,153
+TE12,B,TNC028 (4/2/26-5/7/26) MM290 (5/7/26-),Browning RecFrce / Browning HP5,4/2/2026,35,No TL,Functioning,5/7/2026,25,5-min TL,Functioning,6/2/2026,55,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,115
+TE13,B,TNC21 (4/1-5/19) MM2 (5/19-),Browning RecFrce / Browning HP5,4/1/2026,48,No TL,Functioning,5/19/2026,29,5-min TL,Functioning,6/17/2026,41,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/28/2026,118
+TE14,B, TNC014 (4/2-5/23) MM228 (5/23-),,4/2/2026,51,No TL,Functioning,5/23/2026,47,5-min TL,Functioning,7/8/2026,22,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/30/2026,120
+TE15,B,TNC007 (4/2-5/19) MM6 (5/19-),Browning RecFrce / Browning HP5,4/2/2026,20,No TL,Functioning,4/22/2026,28,No TL,Functioning,5/19/2026,9,5-min TL,Bear Damage,6/18/2026,39,5-min TL,Functioning,7/27/2027,96
+TE16,B,TNC020 (4/2/26-5/7/26) MM278 (5/7/26-),Browning RecFrce / Browning HP5,4/2/2026,35,No TL,Functioning,5/7/2026,0,5-min TL,Data Missing,6/2/2026,55,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,90
+TO01,B,2MP,Reconyx Hyperfire 1,4/10/2026,20,1-min TL,Battery Failure,5/23/2026,25,5-min TL,Functioning,6/17/2026,40,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/28/2026,85
+TO02,B,MM177,Reconyx Hyperfire 1,4/10/2026,39,No TL,Functioning,5/19/2026,22,5-min TL,Battery Failure,6/18/2026,1,5-min TL,Battery Failure,NA,NA,NA,Not Collected ,7/28/2026,62
+TO03,B,NRC269 ,Reconyx Hyperfire 1,4/10/2026,31,1-min TL,Battery Failure,5/19/2026,29,5-min TL,Functioning,6/17/2026,41,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/28/2026,101
+TO04,B,TNC015 (4/1/26-5/7/26) NC158 (5/7 -),Browning RecFrce / Browning HP5,4/1/2026,36,No TL,Functioning,5/7/2026,26,5-min TL,Functioning,6/2/2026,58,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/30/2026,120
+TO05,B,MM295,Browning HP5,4/2/2026,35,No TL,Functioning,5/7/2026,26,5-min TL,Functioning,6/2/2026,16,5-min TL,Functioning,6/18/2026,22,5-min TL,Bear Damage,7/28/2026,99
+TO06,B,TNC026 (4/2/26/5/7/26) MM306 (5/7/26,Browning RecFrce / Browning HP5,4/2/2026,35,No TL,Functioning,5/7/2026,23,5-min TL,Battery Failure,6/1/2026,21,5-min TL,Battery Failure,7/8/2026,22,5-min TL,Functioning,7/30/2026,101
+TO07,B,TNC025 (4/1/26-5/7/26) MM377 (5/7/26-),Browning RecFrce / Browning HP5,4/1/2026,36,No TL,Functioning,5/7/2026,26,5-min TL,Functioning,6/2/2026,58,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/30/2026,120
+TO08,B,TNC024 (04/02-05-19) MM380 (05/19-?),Browning RecFrce / Browning HP5,4/2/2026,47,No TL,Functioning,5/19/2026,30,5-min TL,Functioning,6/18/2026,26,5-min TL,Functioning,7/14/2026,16,5-min TL,Functioning,7/30/2026,119
+TO09,B,MM103,Browning HP5,4/8/2026,41,No TL,Functioning,5/19/2026,29,5-min TL,Functioning,6/17/2026,43,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/30/2026,113
+TO10,B,MM131,Browning HP5,4/10/2026,33,No TL,Functioning,5/13/2026,35,5-min TL,Functioning,6/18/2026,39,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,107
+TO11,B,TNC016 (4/1/26-5/7/26) MM124 (5/7/26-),Browning RecFrce / Browning HP5,4/1/2026,36,No TL,Functioning,5/7/2026,26,5-min TL,Functioning,6/2/2026,16,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,78
+TO12,B,TNC012 (4/2-5/7) MM355 (5/7-),Browning RecFrce / Browning HP5,4/2/2026,35,No TL,Functioning,5/7/2026,0,5-min TL,Data Missing,6/2/2026,55,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/27/2026,90
+TO13,B,TNC008 (4/1-5/19) MM354 (5/19-),Browning RecFrce / Browning HP5,4/1/2026,48,No TL,Functioning,5/19/2026,29,5-min TL,Functioning,6/17/2026,41,5-min TL,Functioning,NA,NA,NA,Not Collected ,7/28/2026,118
+TO14,B,TNC029 (4/2-5/23) MM243 (5/23-),Browning RecFrce / Browning HP5,4/2/2026,20,No TL,Functioning,4/22/2026,32,No TL,Functioning,5/23/2026,17,5-min TL,Battery Failure,7/8/2026,22,5-min TL,Functioning,7/30/2026,91
+TO15,B,TNC001 (4/2-5/19) MM209(5/19-),Browning RecFrce / Browning HP5,4/2/2026,47,No TL,Functioning,5/19/2026,30,5-min TL,Functioning,6/18/2026,0,5-min TL,Data Missing,NA,NA,NA,Not Collected ,7/27/2027,77
+TO16,B,TNC011 (4/1/26-5/7/26) MM114 (5/7/26-),Browning RecFrce / Browning HP5,4/1/2026,36,No TL,Functioning,5/7/2026,26,5-min TL,Functioning,6/2/2026,18,5-min TL,Battery Failure,NA,NA,NA,Not Collected ,7/27/2026,80
