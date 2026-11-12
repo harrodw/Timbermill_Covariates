@@ -20,7 +20,7 @@ library(fs)
 # 1.2) File directories (Change these for your device) -------------------------
 
 # Directory where the validation summaries are held
-csv_dir <-  "/home/will/NCSU/R_Code/Covariate_Management/Data"
+csv_dir <-  "/home/will/NCSU/R_Code/Timbermill_Covariates/Data"
 
 # Add the Data 
 veg_svy_raw <- read_csv(path(csv_dir, "Timbermill_Vegetation_Form_0.csv"))
@@ -55,12 +55,17 @@ veg_svy_clean <- veg_svy_raw |>
       Editor == "dbnewber" ~ "Dakota",
       Editor == "dwbarefo" ~ "Darcy",
       Editor == "wdharrod" ~ "Will",
+      Editor =="bcbolton" ~ "Bryce",
       TRUE ~ Editor
     ),
     Plot.Type = str_extract(Plot.ID, "d{2}")
   ) |> 
+  # Sort and name rows
+  arrange(Plot.ID, Point.ID) |> 
+  rowid_to_column() |> 
   # Select relevant columns
   select(
+    rowid,
     Plot.ID,
     Point.ID,
     Date,
@@ -90,9 +95,25 @@ veg_svy_clean |>
 
 # View the whole thing 
 veg_svy_clean |> 
-  arrange(Plot.ID, Point.ID) |> 
   print(n = Inf)
 
+# Any duplicates?
+veg_svy_clean |> 
+  count(Plot.ID, Point.ID) |> 
+  filter(n > 1)
+
+# List of rows to remove
+drop_rows <- c(1, 113, 139)
+
+# Drop those rows and rename the camera point ID on the other duplicate
+veg_svy_flt <- veg_svy_clean |> 
+  filter(!rowid %in% drop_rows) |> 
+  mutate(Point.ID = case_when(
+    rowid == 30 ~ "CT05",
+    TRUE ~ Point.ID
+  ))
+# View
+glimpse(veg_svy_flt)
 
 ################################################################################
 # 3) Clean the Veg Data ########################################################
@@ -123,7 +144,7 @@ veg_dat_clean <- veg_dat_raw |>
     starts_with("B"),
     ParentGlobalID
   ) |> 
-  rename(GlobalID = ParentGlobalID)
+  rename(GlobalID = ParentGlobalID) 
 # View again
 glimpse(veg_dat_clean)
 
@@ -140,7 +161,7 @@ veg_dat_clean |>
 # Combine the two data types 
 veg_dat_full <- veg_svy_clean |> 
   right_join(veg_dat_clean, by = "GlobalID") |> 
-  select(-GlobalID) |> 
+  select(-GlobalID, - rowid) |> 
   pivot_longer(cols = starts_with("B"), names_to = "Band", values_to = "Cover.Type") |> 
   filter(!is.na(Cover.Type))
 # View 
@@ -156,8 +177,20 @@ veg_dat_full_flt <-  veg_dat_full |>
   filter(
     !Cover.Type %in% c("more tests", "These are just for a test", "ahrdf", "dsG") &
     !is.na(Cover.Type)
-    )
+    ) |> 
+  # Clean thee cover classes
+  mutate(
+    Cover.Type = str_replace(Cover.Type, "w", "W"),
+    Cover.Type = str_replace(Cover.Type, "v", "V"),
+    Cover.Type = str_remove_all(Cover.Type, " "),
+    Cover.Type = str_remove_all(Cover.Type, ","),
+         )
 # View
 glimpse(veg_dat_full_flt)
+
+# What are the cover types after the cleaning?
+veg_dat_full_flt |> 
+  distinct(Cover.Type) |> 
+  print(n = Inf)
 
 # Aggrigate accross 
