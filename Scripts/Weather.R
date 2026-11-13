@@ -24,7 +24,7 @@ library(tuneR)
 # Directory where the raw audio files are held 
 csv_dir <-  "/home/will/NCSU/R_Code/Timbermill_Covariates/Data"
 
-# View the avilable data
+# View the available data
 basename(dir_ls(csv_dir))
 
 # Read in the weather data
@@ -89,7 +89,19 @@ daily_rain <- weather |>
 rain_plot <- daily_rain |> 
   ggplot() +
     geom_col(aes(x = date, y = total.rain.mm), col = "blue2") +
-    theme_classic()
+    theme_classic() +
+  labs(y = "Daily Precipitation (mm)") +
+  theme(
+    plot.title = element_text(size = 14),
+    axis.title.y = element_text(size = 14),
+    axis.title.x = element_text(size = 14),
+    axis.text.x = element_text(size = 14),,
+    axis.text.y = element_text(size = 14),
+    legend.text = element_text(size = 14),
+    legend.position = "right",
+    legend.title = element_text(size = 14),
+    strip.text = element_text(size = 12),
+  ) 
 rain_plot
 
 # Find the days where it rained at least 25 mm
