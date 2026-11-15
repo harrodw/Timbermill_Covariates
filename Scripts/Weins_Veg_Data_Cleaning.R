@@ -170,7 +170,7 @@ glimpse(veg_dat_raw)
 veg_dat_clean <- veg_dat_raw |> 
   # Rename Columns 
   rename(
-    Hit.Number = `Measurment Number`,
+    Drop.Number = `Measurment Number`,
     Notes = `Notes about this Measurement`
   ) |> 
   rename_with(
@@ -179,11 +179,11 @@ veg_dat_clean <- veg_dat_raw |>
                 ) |> 
   # Fix some columns
   mutate(
-    Hit.Number = paste0("H", Hit.Number)
+    Drop.Number = paste0("D", Drop.Number)
   ) |> 
   # Select relevant columns
   select(
-    Hit.Number,
+    Drop.Number,
     Groundcover,
     starts_with("B"),
     ParentGlobalID
@@ -212,6 +212,12 @@ veg_dat_full <- veg_svy_info |>
   # filter(!is.na(Cover.Class))
 # View 
 glimpse(veg_dat_full)
+
+# See some random band cover classes 
+veg_dat_full |> 
+  select(point.id, Drop.Number, Band, Cover.Class, Groundcover) |> 
+  slice_sample(n = 50) |> 
+  print(n = Inf)
 
 # What are the cover types?
 veg_dat_full |> 
@@ -256,10 +262,10 @@ glimpse(veg_dat_full_flt)
 
 # Function to calculate cover 
 cover_cal <- function(dat, cover_class){
-  
+
   # Find the total number of Hits at each point
   hit_count <- dat |> 
-    distinct(plot.id, point.id, plot.type, Date, Hit.Number, x, y) |> 
+    distinct(plot.id, point.id, plot.type, Date, Drop.Number, x, y) |> 
     group_by(plot.id, point.id, plot.type, Date, x, y) |> 
     summarise(n.drops = n(), .groups = "drop") |> 
     filter(n.drops >= 10)
@@ -267,7 +273,7 @@ cover_cal <- function(dat, cover_class){
   # find the number of hits positive for that cover class 
   cvr <- dat |> 
     filter(str_detect(Cover.Class, cover_class)) |> 
-    distinct(plot.id, point.id, plot.type, Date, Hit.Number, x, y) |> 
+    distinct(plot.id, point.id, plot.type, Date, Drop.Number, x, y) |> 
     group_by(plot.id, point.id, plot.type, Date, x, y) |> 
     summarise(n.cvr = n(), .groups = "drop") |> 
     rename_with(
@@ -294,9 +300,14 @@ vine_cvr <- cover_cal(dat = veg_dat_full_flt, cover_class = "V")
 glimpse(wood_cvr)
 wood_cvr |> count(plot.id, point.id) |> filter(n > 1)
 
+# Groundcover ------------------------------------------------------------------
+
+# What is the groundcover breakdown
+veg_dat_full_flt |> count(Groundcover)
+
 # Calculate most common groundcover
 ground_cvr <- veg_dat_full_flt |> 
-  distinct(plot.id, point.id, plot.type, Date, Hit.Number, Groundcover, x, y) |> 
+  distinct(plot.id, point.id, plot.type, Date, Drop.Number, Groundcover, x, y) |> 
   group_by(plot.id, point.id, plot.type, Date, x, y) |>
   count(Groundcover, sort = TRUE) |> 
   slice(1) |> 
@@ -306,15 +317,11 @@ ground_cvr <- veg_dat_full_flt |>
 # View
 glimpse(ground_cvr)
 
-
 # Calculate percent standing water  --------------------------------------------
-
-# What is the groundcover breakdown
-veg_dat_full_flt |> count(Groundcover)
 
 # Find the total number of Hits at each point
 hit_count <- veg_dat_full_flt |> 
-  distinct(plot.id, point.id, plot.type, Date, Hit.Number, x, y) |> 
+  distinct(plot.id, point.id, plot.type, Date, Drop.Number, x, y) |> 
   group_by(plot.id, point.id, plot.type, Date, x, y) |> 
   summarise(n.drops = n(), .groups = "drop") |> 
   filter(n.drops >= 10)
@@ -327,7 +334,7 @@ h2o_cvr <- veg_dat_full_flt |>
   mutate(Groundcover = case_when(Groundcover == "B" & str_detect(plot.id, "TO") ~ "W",
                                  TRUE ~ Groundcover)) |> 
   filter(str_detect(Groundcover, "W")) |> 
-  distinct(plot.id, point.id, plot.type, Date, Hit.Number, x, y) |> 
+  distinct(plot.id, point.id, plot.type, Date, Drop.Number, x, y) |> 
   group_by(plot.id, point.id, plot.type, Date, x, y) |> 
   summarise(h2o.cvr = n(), .groups = "drop") 
 
@@ -342,13 +349,40 @@ hist(h2o_pct$h2o.cvr)
 
 # --------------------------------------------------------------------------
 
+# Calculate percent of drops with no hits --------------------------------------
+
+# Find the drops with no cover in any class
+blank_cvr <- veg_dat_full_flt |> 
+  mutate(bare = case_when(Cover.Class == "N" ~ 0, TRUE ~ 1)) |> 
+  distinct(plot.id, point.id, bare, Cover.Class, plot.type, Date, Drop.Number, x, y) |> 
+  group_by(plot.id, point.id, plot.type, Drop.Number, Date, x, y) |> 
+  mutate(bare.total = sum(bare)) |> 
+  ungroup() |> 
+  filter(bare.total < 1) |> 
+  select(-bare, -bare.total) |> 
+  group_by(plot.id, point.id, plot.type, Date, x, y) |> 
+  summarise(N.cvr = n(), .groups = "drop") |> 
+  right_join(hit_count, by = c("plot.id", "point.id", "plot.type", "Date", "x", "y")) |> 
+  mutate(N.cvr = N.cvr / n.drops)
+# View
+glimpse(blank_cvr)
+
+# ------------------------------------------------------------------------------
+
+# Function to join data 
+join_cvr <- function(dat1, dat2){
+  joined_cvr <-  left_join(dat1, dat2, by = c("plot.id", "point.id", "plot.type", "Date", "n.drops", "x", "y"))
+  return(joined_cvr)
+}
+
 # Combine
 full_cvr_all <- wood_cvr |> 
-  left_join(forb_cvr, by = c("plot.id", "point.id", "plot.type", "Date", "n.drops", "x", "y")) |>
-  left_join(grass_cvr, by = c("plot.id", "point.id", "plot.type", "Date", "n.drops", "x", "y")) |>
-  left_join(cane_cvr, by = c("plot.id", "point.id", "plot.type", "Date", "n.drops", "x", "y")) |> 
-  left_join(vine_cvr, by = c("plot.id", "point.id", "plot.type", "Date", "n.drops", "x", "y")) |>
-  left_join(h2o_pct, by = c("plot.id", "point.id", "plot.type", "Date", "n.drops", "x", "y")) |> 
+  join_cvr(forb_cvr) |> 
+  join_cvr(grass_cvr) |>
+  join_cvr(cane_cvr) |> 
+  join_cvr(vine_cvr) |>
+  join_cvr(blank_cvr) |> 
+  join_cvr(h2o_pct) |> 
   left_join(ground_cvr, by = c("plot.id", "point.id", "plot.type", "Date", "x", "y")) |> 
   rename(date = Date) |> 
   select(plot.id, point.id, plot.type, date, n.drops, ends_with(".cvr"), gc, x, y)
@@ -358,10 +392,30 @@ glimpse(full_cvr_all)
 full_cvr_all |> filter(is.na(plot.id))
 full_cvr_all |> filter(is.na(plot.type))
 
+# Assign the corect plot type to the missing plots 
+full_cvr_plt_typ <- full_cvr_all |> 
+  mutate(
+    plot.type = case_when(
+      is.na(plot.type) & str_detect(plot.id, "IF") ~ "Interior Forest",
+      is.na(plot.type) & str_detect(plot.id, "RE") ~ "Reference Edge",
+      is.na(plot.type) & str_detect(plot.id, "RO") ~ "Reference Opening",
+      is.na(plot.type) & str_detect(plot.id, "TE") ~ "Turbine Edge",
+      is.na(plot.type) & str_detect(plot.id, "TO") ~ "Turbine Opening",
+      TRUE ~ plot.type
+    )) |> 
+  mutate(across(.cols = ends_with(".cvr"), .fns = ~ replace_na(., 0)))
+# View
+glimpse(full_cvr_plt_typ)
+full_cvr_plt_typ |> filter(is.na(plot.id))
+full_cvr_plt_typ |> filter(is.na(plot.type))
+
 # ----------------------------------------------------------------------------
 # FLAGGED! Drop the surveyes of points where we did not collect data ---------
 # ----------------------------------------------------------------------------
-full_cvr <-  full_cvr_all |>  filter(!is.na(plot.id) & !is.na(plot.type))
+full_cvr <-  full_cvr_plt_typ |>  filter(
+  !is.na(plot.id) 
+  # & !is.na(plot.type)
+  )
 
 # Save 
 write_csv(full_cvr, path(csv_dir, "percent_cover.csv"))
@@ -393,22 +447,26 @@ veg_pct_plt_dat <- full_cvr |>
   mutate(
     plot.id.cvr = paste(plot.id, cvr.class, sep = "."),
     plot.id.cvr = factor(plot.id.cvr),
-    plot.id.cvr = fct_reorder(plot.id.cvr, plot.cvr, .desc = TRUE),
+    plot.id.cvr = fct_reorder(plot.id.cvr, plot.cvr, .desc = TRUE, .na_rm = TRUE),
     cvr.class = case_when(
       cvr.class == "F.cvr" ~ "Forbs",
       cvr.class == "G.cvr" ~ "Grass",
       cvr.class == "W.cvr" ~ "Woody",
       cvr.class == "S.cvr" ~ "Switchcane",
       cvr.class == "V.cvr" ~ "Vine",
+      cvr.class == "N.cvr" ~ "No Vegetation",
       cvr.class == "h2o.cvr" ~ "Water",
       TRUE ~ cvr.class
     )) |> 
-  arrange(plot.id)
-
+  arrange(plot.id) |> 
+  # OPTIONAL: Remove a cover class
+  filter(!cvr.class %in% c("Water"))
+  
 # View the data 
 glimpse(veg_pct_plt_dat)
 veg_pct_plt_dat |> count(plot.id) |>  print(n = Inf)
 veg_pct_plt_dat |> count(plot.type) |>  print(n = Inf)
+veg_pct_plt_dat |> filter(cvr.class == "No Vegetation") |> print(n = 100)
 
 # Make a plot of average cover at each plot type 
 veg_pct_plt <- veg_pct_plt_dat |> 
@@ -467,9 +525,12 @@ veg_pal <- c(
 # Prep the data for plotting
 veg_pct_pie_dat <- full_cvr |> 
   pivot_longer(cols = ends_with("cvr"), names_to = "cvr.class", values_to = "point.cvr") |> 
+  filter(cvr.class != "h2o.cvr") |> 
   group_by(plot.type, cvr.class) |> 
   summarise(mean.plt.cvr = mean(point.cvr), .groups = "drop") |> 
-  filter(cvr.class != "h2o.cvr") |> 
+  group_by(plot.type) |> 
+  mutate(mean.plt.cvr = mean.plt.cvr / sum(mean.plt.cvr)) |> 
+  ungroup() |> 
   mutate(
     plot.type.cvr = paste(plot.type, cvr.class, sep = "."),
     cvr.class = case_when(
@@ -478,6 +539,7 @@ veg_pct_pie_dat <- full_cvr |>
       cvr.class == "W.cvr" ~ "Woody",
       cvr.class == "S.cvr" ~ "Switchcane",
       cvr.class == "V.cvr" ~ "Vine",
+      cvr.class == "N.cvr" ~ "No Vegetation",
       TRUE ~ cvr.class
     )) 
 
@@ -485,38 +547,9 @@ veg_pct_pie_dat <- full_cvr |>
 glimpse(veg_pct_pie_dat)
 veg_pct_pie_dat |> print(n = Inf)
 
-# Add the No Veg Cover Class 
-veg_pct_pie_dat_blank <-  veg_pct_pie_dat |> 
-  group_by(plot.type) |> 
-  mutate(
-    total.plt.cvr = sum(mean.plt.cvr),
-    total.plt.cvr = case_when(total.plt.cvr > 1 ~ 1, TRUE ~ total.plt.cvr),
-    no.veg.cvr = 1 - total.plt.cvr
-    ) |> 
-  ungroup() |> 
-  select(plot.type, no.veg.cvr) |> 
-  distinct() |> 
-  rename(mean.plt.cvr = no.veg.cvr) |> 
-  mutate(
-    cvr.class = "No Vegetation",
-    plot.type.cvr =  paste0(plot.type, ".no.veg.cvr")
-    ) |> 
-  bind_rows(veg_pct_pie_dat) |> 
-  group_by(plot.type) |> 
-  mutate(mean.plt.cvr = mean.plt.cvr / sum(mean.plt.cvr)) |> 
-  ungroup() |>
-  arrange(plot.type, cvr.class) |> 
-  mutate(
-    plot.type.cvr = factor(plot.type.cvr),
-    plot.type.cvr = fct_reorder(plot.type.cvr, mean.plt.cvr, .desc = TRUE)
-  ) 
-# View again
-glimpse(veg_pct_pie_dat_blank)
-veg_pct_pie_dat_blank |> print(n = Inf)
-
 # Make the pie chart
-veg_pct_pie <-  veg_pct_pie_dat_blank |> 
-  filter(mean.plt.cvr > 0) |> 
+veg_pct_pie <-  veg_pct_pie_dat |> 
+  # filter(mean.plt.cvr > 0) |> 
   ggplot(aes(x = "", y = mean.plt.cvr, fill = cvr.class, col = cvr.class)) +
   geom_col(width = 1) +
   scale_color_manual(values = veg_pal) +
